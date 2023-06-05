@@ -10,6 +10,7 @@ import {useEffect ,useState} from 'react'
 import AddCompany from './components/Admin_part/AddCompany'
 import axios from "axios";
 import './styles/Mobile_adapt/header.css'
+import Auth from "./components/Admin_part/Auth";
 
 
 
@@ -19,6 +20,13 @@ function App() {
   const [CountryCode, setCountryCode] = useState([]);
   const [lat, setLat] = useState(22.5726);
   const [lon, setLon] = useState(88.3832);
+
+  const adm_tkn = localStorage.getItem('test')
+  console.log('from App.js >> ' ,adm_tkn)
+
+  
+
+
  
   // Fetching the API once when the
   // component is mounted
@@ -52,6 +60,8 @@ return (
         <Route path="/vakansii" element={<Vakansii />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/admin/add-company" element={<AddCompany />} />
+        <Route path="/admin/auth" element={<Auth />} />
+        <Route path="/admin/" element={<AdminMain />} />
 
         {/* <Route path="/admin" element={<AdminMain />} /> */}
         <Route path="/companies/:id" element={<CompanyInfo />} />

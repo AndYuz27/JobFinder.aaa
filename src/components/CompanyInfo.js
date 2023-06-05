@@ -54,7 +54,7 @@ export default function CompanyInfo(){
                         <h2>Информация о компании/ИП</h2>
 
             <div className="company_info__img">
-                <img className="img_comp" src={el.image_company} alt={el.company_name}></img>
+            <div className="img_comp"  style={{backgroundImage: `url(${img})`, borderRadius: "15px"}}></div>
             </div>
             <div className="company_info__description">
                 <p>Название компании: <b> {el.company_name}</b></p>
