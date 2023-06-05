@@ -1,0 +1,16 @@
+@media screen and (max-width : 800px) {
+    .bg_ee{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 720px;
+        background-image: url('https://img.freepik.com/free-photo/man-looking-through-magnifying-glass-with-serious-and-thoughtful-look-searching-or-investigating-standing-over-yellow-background_1258-67353.jpg?w=1380&t=st=1684093126~exp=1684093726~hmac=ea23e04d3c8b7eee69609ce59a0b00b9da1e8a46df57407026ffc1a1866a19cc');
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover;
+    }
+    .ddfg{
+        margin-top: 85%;
+        font-size: 8pt;
+    }
+}

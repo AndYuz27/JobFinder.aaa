@@ -1,0 +1,18 @@
+.form-company{
+    display: flex;
+    flex-direction: column;
+    padding: 56px;
+}
+input{
+    width: 320px;
+    height: 32px;
+    margin: 5px;
+    background-color: azure;
+    border-radius: 8px;
+    font-size: 12pt;
+    transition: 0.5s;
+    padding: 5px;
+}
+input:hover{
+    background-color:  lightgrey;
+}

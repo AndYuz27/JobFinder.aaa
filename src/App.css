@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+body{
+  background-color: #fff;
+}
+.logo{
+  font-family: 'Righteous', cursive;
+}
+.hdr_main{
+  height: 64px;
+  width: 95%;
+  position: fixed;
+  background-color: lightyellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 48px 0 48px;
+  z-index: 24;
+}
+.card_comp{
+  width: 640px;
+  margin: 15px;
+  padding: 10px 25px 10px 25px;
+  border: 1px solid;
+  border-radius: 8px;
+  background-color: #eeeeee;
+  box-shadow: 5px 3px 15px gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+}
+.card_comp:hover{
+  background-color: lightblue;
+  box-shadow: 5px 3px 15px rgb(180, 180, 180);
+
+}
+.jjhh{
+  padding: 20px;
+}
+a{
+  text-decoration: none;
+  margin: 15px;
+  font-weight: 500;
+  color: black;
+  transition: 0.5s;
+}
+a:hover{
+  color: gray;
+}
+a:active{
+  color: darkgray;
+}
+.aa{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img_comp{
+  width: 250px;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.comp_page{
+  padding-left: 24px;
+}
+.descr{
+  width: 320px;
+}

@@ -1,0 +1,53 @@
+.company_info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* margin: 0; */
+    padding: 0 ;
+
+}
+.vcs_comps{
+    width: 70%;
+    height: 80vh;
+    padding: 4px;
+    /* margin: 8px; */
+    /* border: 2px solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: blanchedalmond; */
+
+
+}
+.vcs_grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.info_company{
+    width: 292px;
+    padding: 15px;
+    margin: 25px 15px 8px 38px;
+    height: 80vh;
+    /* border: 2px solid; */
+    /* background-color: #3f3f3f; */
+    /* color: azure; */
+    /* border-radius: 8px; */
+    box-shadow: 2px 2px 12px black;
+
+}
+
+.img_comp{
+    width: 250px;
+}
+.vacancy{
+    width: 210px;
+    height: 297px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 8px;
+    /* border: 1px solid; */
+    /* border-radius: 4px; */
+    background-color: white;
+    box-shadow: 2px 2px 12px black;
+}

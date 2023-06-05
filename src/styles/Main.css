@@ -1,0 +1,134 @@
+main{
+    display: flex;
+    position: relative;
+margin: 0;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.main_page{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.Landing{
+    /* position: relative; */
+    width: 100%;
+    height: 600px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lnd_img{
+    /* position: absolute; */
+    /* background-image: url('https://img.freepik.com/free-photo/portrait-of-young-japanese-business-woman-corporate-lady-in-suit-pointing-on-wall-with-chart-showing-diagram-or-advertisement-on-empty-copy-space-pink-background_1258-90190.jpg?w=1380&t=st=1684318776~exp=1684319376~hmac=53d09395df07b9c0a528477f1ec35c9494168986ad818c1814d482c69c7491f2'); */
+    width: 640px;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lnd_info{
+    width: 75%;
+    height: 600px;
+    /* position: absolute;
+    top: 0;
+    left: 43%; */
+    background-color: #fff;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+
+}
+.hdr_button{
+    width: 192px;
+    height: 96px;
+    padding: 5px;
+    border: 3px solid;
+    border-radius: 25px;
+}
+.hdr_button:hover{
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+
+}
+.PartOne{
+    z-index: 10;
+    width: 90%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.porgress_simple{
+    width: 70%;
+    height: 15%;
+    background-color: lightsalmon;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding: 24px;
+    border-radius: 8px;
+}
+.prog1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_lend{
+    
+    padding: 4px;
+    border: 1.5px solid;
+    margin-top: 8px;
+    border-radius: 50%;
+}
+.card_pos{
+    width: 320px;
+    height: 224px;
+    border: 1px solid;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    border-radius: 15px;
+}
+.ddd{
+    padding-left: 15px;
+}
+.cate_list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.job_recomend{
+    position: relative;
+    width: 90%;
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vacancy_ppp{
+    width: 512px;
+    height: 192px;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 12px black;
+    padding: 8px;
+    margin: 25px;
+}
