@@ -20,7 +20,7 @@ export default function Auth() {
                 window.location.href='/admin/';
                 console.log('reboot is compl')
               }else{
-                console.log('fuck you')
+                alert('Неправильный логин либо пароль')
             }
 
       console.log(email, password);

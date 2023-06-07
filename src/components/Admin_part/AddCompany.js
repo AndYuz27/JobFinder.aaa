@@ -3,6 +3,7 @@ import Axios from 'axios'
 import '../../styles/Admin.css'
 
 export default function AddCompany(){
+    const aAuth = localStorage.getItem('isAuthAdm')
 
     const url='https://sppjfapi.andrieiiuzlov.repl.co/api/company'
     const [data, setData] = useState({
@@ -47,8 +48,15 @@ export default function AddCompany(){
         setData(newdata)
         // console.log(newdata)
     }
-
-    return(
+    if(!aAuth){
+        window.location.href="/admin/auth"
+        return(
+            <div>
+                <h2>Вы не вошли в систему. Редактирование невозможно</h2>
+            </div>
+        )
+    }else{
+        return(
         <div className='AddCompany'>
             <h2>Добавление компании</h2>
             <form className='form-company' onSubmit={(e) => submit(e)}>
@@ -68,4 +76,5 @@ export default function AddCompany(){
             </form>
         </div>
     )
+        }
 }

@@ -11,6 +11,7 @@ import AddCompany from './components/Admin_part/AddCompany'
 import axios from "axios";
 import './styles/Mobile_adapt/header.css'
 import Auth from "./components/Admin_part/Auth";
+import Footer from "./components/Footer";
 
 
 
@@ -18,8 +19,6 @@ function App() {
 
   const [ipDetails, setIpDetails] = useState([]);
   const [CountryCode, setCountryCode] = useState([]);
-  const [lat, setLat] = useState(22.5726);
-  const [lon, setLon] = useState(88.3832);
 
   const adm_tkn = localStorage.getItem('test')
   console.log('from App.js >> ' ,adm_tkn)
@@ -69,6 +68,7 @@ return (
       </Routes>
   </div>
 
+  <Footer/>
 
 </main>
 
