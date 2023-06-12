@@ -11,20 +11,22 @@ import ReactStars from "react-rating-stars-component";
 export default function CompanyInfo(){
 
     localStorage.setItem('own_name', 'strom-trakt')
-    const own_name = localStorage.getItem('own_name')
+    // const own_name = localStorage.getItem('own_name')
 
     const [tour, setTour] = useState([])
     const [vacs, setVacs] = useState([])
+    const [isLoad, setIsLoad] = useState(false)
     const [validOwn, setValidOwn] = useState('')
     const { id } = useParams();
     // console.log(id)
     useEffect(() => {
         if ( id ) {
-            axios.get(`https://sppjfapi.andrieiiuzlov.repl.co/api/company/${id}`)
+            axios.get(`https://sppjfapi.andrieiiuzlov.repl.co/api/company/name/${id}`)
                 .then(res => {
                     console.log(res.data.rows)
                     setTour(res.data.rows)
-                    setValidOwn(own_name === res.data.rows[0].nik_name)
+                    setIsLoad(true)
+                    setValidOwn(id === res.data.rows[0].nik_name)
                     console.log(ddd)
                 })
                 .catch(err => {
@@ -44,6 +46,7 @@ console.log(validOwn)
                 .then(res => {
                     console.log(res.data.rows)
                     setVacs(res.data.rows)
+
                     // setidComp(res.data.rows.id)
                     // console.log(res.data.rows.id)
                 })
@@ -54,54 +57,17 @@ console.log(validOwn)
     }, [ id_comp ]);
 
     
-
-
-if(validOwn == false){
-    return(
-<div className="company_info">
-                        {tour.map((el) => {return <div className="info_company" key={el.id}>
-                        <h2>Информация о компании/ИП</h2>
-
-            <div className="company_info__img">
-            <div className="img_comp"  style={{backgroundImage: `url(${el.image_company})`, borderRadius: "15px"}}></div>
-            </div>
-            <div className="company_info__description">
-                <p>Название компании: <b> {el.company_name}</b></p>
-
-                <h3>Контакты:</h3>
-                <p>{el.contacts__comp}</p>
-                <ReactStars
-                edit={false}
-                isHalf={false}
-                
-    count={5}
-    value={el.rathing}
-    size={48}
-    activeColor="#ffd700"
-  />
-        
-            </div>
-                        </div>})}
-                        <div className="vcs_comps">
-                        {tour.map((el) => {return <div key={el.id}>
-                                <h3>Описание</h3>
-                                <p>{el.company_info}</p>
-</div>})}
-                            <h2>Вакансии компании</h2>
-                            <div className="vcs_grid">
-                        {vacs.map((e)=> {
-                            return <div className="vacancy" key={e.id}>
-                                <h3>{e.name_vacancy}</h3>
-                                <p>Заработная плата: {e.salary} руб.</p>
-                                <p>Режим работы {e.shedule_vacancy}</p>
-                                <p>Тип работы {e.type_work}</p>
-                            </div>
-                        })}</div>
-                        </div>
-                        
+if(!isLoad) {
+    return (
+        <div className='comp_page'>
+        <h2>Загрузка данных</h2>
+        <div className='load_page' style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+            <img src='https://flottgroup.com/upload/blog/2022-06-30/zagruzka.gif' alt='LOADING' style={{width: "128px"}}/>
         </div>
+    </div>
     )
 }else{
+
         return(
         <div className="company_info">
                         {tour.map((el) => {return <div className="info_company" key={el.id}>
@@ -124,7 +90,7 @@ if(validOwn == false){
     size={48}
     activeColor="#ffd700"
   />
-        <a href="#">Редактировать страницу</a>
+        <a href={`/companies/edit/${el.nik_name}`}>Редактировать страницу</a>
             </div>
                         </div>})}
                         <div className="vcs_comps">
@@ -134,6 +100,8 @@ if(validOwn == false){
 </div>})}
                             <h2>Вакансии компании</h2>
                             <div className="vcs_grid">
+
+                        
                         {vacs.map((e)=> {
                             return <div className="vacancy" key={e.id}>
                                 <h3>{e.name_vacancy}</h3>
@@ -146,8 +114,15 @@ if(validOwn == false){
                         
         </div>
     )
+
 }
 
+
+
+
+}
+
+function Vacancy(){
 
 }
 

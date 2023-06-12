@@ -21,21 +21,21 @@ body{
   width: 640px;
   margin: 15px;
   padding: 10px 25px 10px 25px;
-  border: 1px solid;
-  border-radius: 8px;
-  background-color: #eeeeee;
-  box-shadow: 5px 3px 15px gray;
+  /* border: 1px solid; */
+  /* border-radius: 8px; */
+  /* background-color: #eeeeee;
+  box-shadow: 5px 3px 15px gray; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.5s;
 }
-.card_comp:hover{
+/* .card_comp:hover{
   background-color: lightblue;
   box-shadow: 5px 3px 15px rgb(180, 180, 180);
 
-}
+} */
 .jjhh{
   padding: 20px;
 }

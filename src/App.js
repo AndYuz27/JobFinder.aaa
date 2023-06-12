@@ -12,6 +12,9 @@ import axios from "axios";
 import './styles/Mobile_adapt/header.css'
 import Auth from "./components/Admin_part/Auth";
 import Footer from "./components/Footer";
+import CompEdit from "./components/CompEdit";
+import AddPosition from "./components/Admin_part/AddPosition";
+import AuthComp from "./components/AuthComp";
 
 
 
@@ -20,8 +23,9 @@ function App() {
   const [ipDetails, setIpDetails] = useState([]);
   const [CountryCode, setCountryCode] = useState([]);
 
-  const adm_tkn = localStorage.getItem('test')
-  console.log('from App.js >> ' ,adm_tkn)
+  // const adm_tkn = localStorage.getItem('test')
+  const cmp_st = localStorage.getItem('cmp_name')
+  console.log('from App.js >> ' ,cmp_st)
 
   
 
@@ -49,7 +53,10 @@ return (
     <Link to="/vakansii">Вакансии</Link>
     <Link to="/companies">Компании</Link>
     <a href="">Работа рядом</a>
-    <a href="">Войти</a>
+    {/* <Link to="/auth/company">Войти</Link> */}
+    {!cmp_st && <Link to="/auth/company">Войти</Link>}
+    {cmp_st && <Link to={`/aaa_blog/profile/${cmp_st}`} className="header__btn" >Профиль компании</Link>}
+
   </nav>
 </header>
 <main>
@@ -61,9 +68,12 @@ return (
         <Route path="/admin/add-company" element={<AddCompany />} />
         <Route path="/admin/auth" element={<Auth />} />
         <Route path="/admin/" element={<AdminMain />} />
+        <Route path="/admin/add-position" element={<AddPosition />} />
 
         {/* <Route path="/admin" element={<AdminMain />} /> */}
         <Route path="/companies/:id" element={<CompanyInfo />} />
+        <Route path="/companies/edit/:id" element={<CompEdit/>} />
+        <Route path="/auth/company" element={<AuthComp/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
   </div>

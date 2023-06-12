@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-
 import { getComps } from "../api"
 import Card from './Card'
 import '../App.css'
