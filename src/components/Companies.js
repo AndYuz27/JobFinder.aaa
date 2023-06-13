@@ -8,7 +8,7 @@ import '../App.css'
 
 
 export default function Companies(){
-
+    const [srch, setSrch] = useState('');
     const [comps, setProds] = useState([]);
     let [isLoadd, setIsLoadd] = useState(false);
     useEffect(() => {
@@ -20,6 +20,13 @@ export default function Companies(){
         };
         setNewCards();
     }, []);
+
+    const handleSubComp = (e) => {
+        e.preventDefault();
+    
+        console.log(srch);
+        window.location.href=`/companies/city/${srch}`;    
+    }
 
     if(!isLoadd){
         return(
@@ -33,6 +40,13 @@ export default function Companies(){
     }else{
     return(
         <div className='comp_page'>
+                            <div className='comp-search'>
+                <form onSubmit={handleSubComp}>
+        
+          <input type='text' id='search' placeholder='найти по городу/региону' value={srch} onChange={(e) => setSrch(e.target.value)} />
+        <button>найти</button>
+      </form>
+                </div>
             <div className='jjhh'>Вот что найдено</div>
             <div className='hhj'>
             {comps.map((el, index) => {return <Card key={index} comp={el}/>})}

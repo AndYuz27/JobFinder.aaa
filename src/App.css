@@ -72,3 +72,6 @@ a:active{
 .descr{
   width: 320px;
 }
+form{
+  margin-top: 64px;
+}

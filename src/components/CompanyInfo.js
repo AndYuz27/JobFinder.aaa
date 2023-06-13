@@ -81,6 +81,7 @@ if(!isLoad) {
 
                 <h3>Контакты:</h3>
                 <p>{el.contacts__comp}</p>
+                <p>Адрес: {el.adress_comp} <a href={`http://maps.yandex.ru/?text=${el.adress_comp}`}>Найти в Яндекс Карты</a></p>
                 <ReactStars
                 edit={false}
                 isHalf={false}
@@ -90,6 +91,7 @@ if(!isLoad) {
     size={48}
     activeColor="#ffd700"
   />
+
         <a href={`/companies/edit/${el.nik_name}`}>Редактировать страницу</a>
             </div>
                         </div>})}

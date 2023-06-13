@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import CompEdit from "./components/CompEdit";
 import AddPosition from "./components/Admin_part/AddPosition";
 import AuthComp from "./components/AuthComp";
+import CompSearch from "./components/CompSerarch";
 
 
 
@@ -55,7 +56,7 @@ return (
     <a href="">Работа рядом</a>
     {/* <Link to="/auth/company">Войти</Link> */}
     {!cmp_st && <Link to="/auth/company">Войти</Link>}
-    {cmp_st && <Link to={`/aaa_blog/profile/${cmp_st}`} className="header__btn" >Профиль компании</Link>}
+    {cmp_st && <Link to={`/companies/edit/${cmp_st}`} className="header__btn" >Профиль компании</Link>}
 
   </nav>
 </header>
@@ -73,6 +74,7 @@ return (
         {/* <Route path="/admin" element={<AdminMain />} /> */}
         <Route path="/companies/:id" element={<CompanyInfo />} />
         <Route path="/companies/edit/:id" element={<CompEdit/>} />
+        <Route path="/companies/city/:id_city" element={<CompSearch/>} />
         <Route path="/auth/company" element={<AuthComp/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
