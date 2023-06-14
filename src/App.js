@@ -16,6 +16,7 @@ import CompEdit from "./components/CompEdit";
 import AddPosition from "./components/Admin_part/AddPosition";
 import AuthComp from "./components/AuthComp";
 import CompSearch from "./components/CompSerarch";
+import VacInfo from "./components/VacInfo";
 
 
 
@@ -65,6 +66,7 @@ return (
           <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/vakansii" element={<Vakansii />} />
+        <Route path="/vakansii/:id" element={<VacInfo />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/admin/add-company" element={<AddCompany />} />
         <Route path="/admin/auth" element={<Auth />} />

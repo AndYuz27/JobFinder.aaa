@@ -22,8 +22,8 @@ export default function Auth() {
               console.log(token)
               console.log('pass')
               localStorage.setItem('test', token);
-              localStorage.setItem('cmp_name', email);
-              localStorage.setItem('isAuthCmp', true)
+              localStorage.setItem('adm_name', email);
+              localStorage.setItem('isAuthAdm', true)
               window.location.href='/admin/';
               console.log('reboot is compl')
         }else{

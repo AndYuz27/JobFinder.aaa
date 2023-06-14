@@ -10,8 +10,8 @@ import ReactStars from "react-rating-stars-component";
 
 export default function CompanyInfo(){
 
-    localStorage.setItem('own_name', 'strom-trakt')
-    // const own_name = localStorage.getItem('own_name')
+    // localStorage.setItem('own_name', 'strom-trakt')
+    const own_name = localStorage.getItem('cmp_name')
 
     const [tour, setTour] = useState([])
     const [vacs, setVacs] = useState([])
@@ -26,7 +26,7 @@ export default function CompanyInfo(){
                     console.log(res.data.rows)
                     setTour(res.data.rows)
                     setIsLoad(true)
-                    setValidOwn(id === res.data.rows[0].nik_name)
+                    setValidOwn(own_name === res.data.rows[0].nik_name)
                     console.log(ddd)
                 })
                 .catch(err => {
@@ -46,9 +46,6 @@ console.log(validOwn)
                 .then(res => {
                     console.log(res.data.rows)
                     setVacs(res.data.rows)
-
-                    // setidComp(res.data.rows.id)
-                    // console.log(res.data.rows.id)
                 })
                 .catch(err => {
                     console.log(err)
@@ -67,8 +64,8 @@ if(!isLoad) {
     </div>
     )
 }else{
-
-        return(
+if(validOwn) {
+    return(
         <div className="company_info">
                         {tour.map((el) => {return <div className="info_company" key={el.id}>
                         <h2>Информация о компании/ИП</h2>
@@ -116,6 +113,56 @@ if(!isLoad) {
                         
         </div>
     )
+}else{
+    return(
+        <div className="company_info">
+                        {tour.map((el) => {return <div className="info_company" key={el.id}>
+                        <h2>Информация о компании/ИП</h2>
+
+            <div className="company_info__img">
+            <div className="img_comp"  style={{backgroundImage: `url(${el.image_company})`, borderRadius: "15px"}}></div>
+            </div>
+            <div className="company_info__description">
+                <p>Название компании: <b> {el.company_name}</b></p>
+
+                <h3>Контакты:</h3>
+                <p>{el.contacts__comp}</p>
+                <p>Адрес: {el.adress_comp} <a href={`http://maps.yandex.ru/?text=${el.adress_comp}`}>Найти в Яндекс Карты</a></p>
+                <ReactStars
+                edit={false}
+                isHalf={false}
+                
+    count={5}
+    value={el.rathing}
+    size={48}
+    activeColor="#ffd700"
+  />
+
+            </div>
+                        </div>})}
+                        <div className="vcs_comps">
+                        {tour.map((el) => {return <div key={el.id}>
+                                <h3>Описание</h3>
+                                <p>{el.company_info}</p>
+</div>})}
+                            <h2>Вакансии компании</h2>
+                            <div className="vcs_grid">
+
+                        
+                        {vacs.map((e)=> {
+                            return <div className="vacancy" key={e.id}>
+                                <h3>{e.name_vacancy}</h3>
+                                <p>Заработная плата: {e.salary} руб.</p>
+                                <p>Режим работы {e.shedule_vacancy}</p>
+                                <p>Тип работы {e.type_work}</p>
+                            </div>
+                        })}</div>
+                        </div>
+                        
+        </div>
+    )
+}
+        
 
 }
 

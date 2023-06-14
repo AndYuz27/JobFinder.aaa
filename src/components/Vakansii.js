@@ -32,7 +32,7 @@ export default function Vakansii() {
     return(
         <div className="main_page">
             {vacs.map((e) => {return <div className="vacancy_ppp" key={e.id}> {/*карточка товара */}
-                                <h3>{e.name_vacancy}</h3>
+                                <h3><a href={`/vakansii/${e.id}`}>{e.name_vacancy}</a></h3>
                                 <p>Заработная плата: {e.salary} руб.</p>
                                 <p>Режим работы {e.shedule_vacancy}</p>
                                 <p>Тип работы {e.type_work}</p>

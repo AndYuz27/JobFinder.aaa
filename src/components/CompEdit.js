@@ -10,8 +10,10 @@ export default function CompEdit(){
     const [vacs, setVacs] = useState([])
     const [vvac, setVvac] = useState('none')
     const cmp_st = localStorage.getItem('cmp_name')
-
+    const [validcmp, setvalidcmp] = useState(false)
     const [id_comp, setIdComp] = useState('')
+    const [addr_c, setAddr] = useState('')
+    const [id_vacs, setId] = useState([])
     const [data, setData] = useState({
         nm:  '',
         salary:  '',
@@ -20,6 +22,7 @@ export default function CompEdit(){
         stovc:  '',
         pos_id:  '',
         comp_id:  '',
+        addr:  '',
     });
     const { id } = useParams();
 
@@ -31,6 +34,8 @@ export default function CompEdit(){
                     setTour(res.data.rows)
                     setName(res.data.rows[0].company_name)
                     setIdComp(res.data.rows[0].id)
+                    setAddr(res.data.rows[0].adress_comp)
+                    setvalidcmp(res.data.rows[0].nik_name === cmp_st)
                     console.log(res.data.rows[0].id)
                     console.log(res.data.rows[0].company_name)
                     setIsLoad(true)
@@ -40,6 +45,10 @@ export default function CompEdit(){
                 })
         }
     }, [ id ]);
+
+console.log(validcmp)
+
+    
     useEffect(() => {
 
         
@@ -55,6 +64,9 @@ export default function CompEdit(){
                 })
         }
     }, [ id_comp ]);
+    console.log(addr_c)
+    
+
     function submitVac(e) {
         e.preventDefault();
         console.log(data)
@@ -66,13 +78,13 @@ export default function CompEdit(){
             stovc: data.stovc,
             pos_id: data.pos_id,
             comp_id: id_comp,
+            addr: addr_c,
 
         }).then(res => {
             console.log('data is added')
             console.log(res.data)
             alert('Вакансия Добавлена')
         })
-//nm, salary, shdl, twrk, stovc, pos_id, comp_id
     }
     function handleVac(e) {
         const newdata={...data}

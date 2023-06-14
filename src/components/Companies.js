@@ -4,9 +4,6 @@ import Card from './Card'
 import '../App.css'
 
 
-
-
-
 export default function Companies(){
     const [srch, setSrch] = useState('');
     const [comps, setProds] = useState([]);
