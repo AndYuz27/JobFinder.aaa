@@ -44,10 +44,61 @@
     height: 297px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 5px;
     margin: 8px;
     /* border: 1px solid; */
     /* border-radius: 4px; */
     background-color: white;
     box-shadow: 2px 2px 12px black;
+}
+.form-cr-vac{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vacs-edit{
+    transition: 0.5s;
+}
+.vacancy-f-edit{
+    margin: 45px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px dotted;
+    padding: 10px;
+}
+.btn-vac-del{
+    background: none;
+    border: 1px solid;
+    font-size: 18pt;
+    font-weight: bold;
+    transition: 0.5s;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-vac-del:hover{
+    background-color: black;
+    color: white;
+}
+.vc-txt{
+    margin: 0;
+}
+button{
+    background: none;
+    border: 1px solid;
+    font-size: 14pt;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+button:hover{
+    background-color: black;
+    color: white;
 }

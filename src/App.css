@@ -75,3 +75,26 @@ a:active{
 form{
   margin-top: 64px;
 }
+.job_recomend-img{
+  height: 480px;
+}
+@media screen and (max-width: 980px) {
+  .hdr_main{
+    width: 81%;
+    height: 48px;
+  }
+  .Landing{
+    display: flex;
+    flex-direction: column;
+  }
+  .aa{
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .job_recomend-img{
+    height: 300px;
+}
+}

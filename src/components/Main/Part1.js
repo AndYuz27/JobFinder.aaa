@@ -3,6 +3,7 @@ import OperatorIcon from '../../Assets/operator.jpg'
 import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { getPositions } from '../../api';
+import '../../App.css'
 
 
 export default function Part1(){
@@ -61,7 +62,7 @@ console.log(positions)
             </div>
             <div className="job_recomend">
                 <div className='img_job'>
-                <img src={OperatorIcon} alt="" style={{height: "480px"}}/>
+                <img className="job_recomend-img" src={OperatorIcon} alt=""/>
                 Image by <a href="https://www.freepik.com/free-vector/flat-customer-support-illustration_13184991.htm#query=operator&position=4&from_view=search&track=sph">Freepik</a>
                 </div>
                 <div className="descr">

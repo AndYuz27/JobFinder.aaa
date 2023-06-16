@@ -54,8 +54,6 @@ return (
   <nav className="navbar_aaa">
     <Link to="/vakansii">Вакансии</Link>
     <Link to="/companies">Компании</Link>
-    <a href="">Работа рядом</a>
-    {/* <Link to="/auth/company">Войти</Link> */}
     {!cmp_st && <Link to="/auth/company">Войти</Link>}
     {cmp_st && <Link to={`/companies/edit/${cmp_st}`} className="header__btn" >Профиль компании</Link>}
 

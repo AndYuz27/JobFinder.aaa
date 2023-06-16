@@ -147,7 +147,6 @@ if(!validcmp){
                                 <p>E-mail <a href={`mailto:${e.email}`}>{e.email}</a></p>
                                 <p>Телефон {e.phone}</p>
                                 <a href={e.cv_link}>ссылка на резюме</a>
-                                {/* <p>Тип работы {e.type_work}</p> */}
                             </div>})}
 
 </div>

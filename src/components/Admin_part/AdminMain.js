@@ -6,6 +6,14 @@ export default function AdminMain(){
     const nm = localStorage.getItem('adm_name')
     
 
+    function DeAuth(){
+        localStorage.removeItem('adm_name')
+        localStorage.removeItem('test1')
+        localStorage.removeItem('isAuthAdm')
+        window.location.href=`/`;
+    }
+
+
     if(!aAuth){
         window.location.href="/admin/auth"
         return(
@@ -19,9 +27,10 @@ export default function AdminMain(){
                 <h2>Hello {nm}</h2>
                 <div className="navbar">
                     <Link to="/admin/add-company">Добавить компанию</Link>
-                    <Link to="/admin/add-company">Изменить компанию</Link>
                     <Link to="/admin/add-company">Удалить компанию</Link>
                 </div>
+                <button onClick={() => DeAuth()}>Выйти из системы</button>
+
             </div>
         )
     }

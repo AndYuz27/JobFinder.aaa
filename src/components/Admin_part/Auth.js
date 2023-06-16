@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { getAdmins } from "../../api";
 export default function Auth() {
-    const [email, setEmail] = useState('');
+    const [aemail, setaEmail] = useState('');
     const [password, setPassword] = useState('');
 
 
@@ -21,8 +21,8 @@ export default function Auth() {
                 let token = Math.floor(Math.random() * (1000000 - 1) + 1);
               console.log(token)
               console.log('pass')
-              localStorage.setItem('test', token);
-              localStorage.setItem('adm_name', email);
+              localStorage.setItem('test1', token);
+              localStorage.setItem('adm_name', aemail);
               localStorage.setItem('isAuthAdm', true)
               window.location.href='/admin/';
               console.log('reboot is compl')
@@ -36,7 +36,7 @@ export default function Auth() {
     }
     }  
     
-    fetcher(email, password)
+    fetcher(aemail, password)
 
   };
 
@@ -46,7 +46,7 @@ export default function Auth() {
       <form onSubmit={handleSub}>
         <div>
           <label htmlFor='email'>Email</label>
-          <input type='text' id='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type='text' id='email' value={aemail} onChange={(e) => setaEmail(e.target.value)} />
         </div>
         <div>
           <label htmlFor='password'>Password</label>

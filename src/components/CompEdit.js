@@ -1,7 +1,9 @@
+import axios from 'axios';
 import Axios from 'axios'
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
-
+import '../styles/Companies.css'
+import { getPositions } from '../api';
 
 
 export default function CompEdit(){
@@ -9,6 +11,7 @@ export default function CompEdit(){
     const [name, setName] = useState('')
     const [vacs, setVacs] = useState([])
     const [vvac, setVvac] = useState('none')
+    const [vcmp, setVcmp] = useState('none')
     const cmp_st = localStorage.getItem('cmp_name')
     const [validcmp, setvalidcmp] = useState(false)
     const [id_comp, setIdComp] = useState('')
@@ -24,6 +27,8 @@ export default function CompEdit(){
         comp_id:  '',
         addr:  '',
     });
+    const [positions, SetPositions] = useState([])
+
     const { id } = useParams();
 
     useEffect(() => {
@@ -46,6 +51,20 @@ export default function CompEdit(){
         }
     }, [ id ]);
 
+
+    // const [data_cmp, setData_cmp] = useState({
+    //     nm:  '',
+    //     ogrn:  '',
+    //     type:  '',
+    //     sfera:  '',
+    //     contacts:  '',
+    //     company_info:  '',
+    //     image_company:  '',
+    //     id:  id_comp
+    // });
+
+
+
 console.log(validcmp)
 
     
@@ -66,6 +85,14 @@ console.log(validcmp)
     }, [ id_comp ]);
     console.log(addr_c)
     
+    useEffect(() => {
+        const setNewCards = async () => {
+            let res = await getPositions();
+            console.log(res);
+            SetPositions(res);
+        };
+        setNewCards();
+    }, []);
 
     function submitVac(e) {
         e.preventDefault();
@@ -93,14 +120,30 @@ console.log(validcmp)
     }
 
     function delVac(e) {
-    fetch(`https://sppjfapi.andrieiiuzlov.repl.co/api/vacancy/${e}`,{
-        method: 'DELETE'
-    }).then((result) => {
-        result.json().then((res) =>{
-            console.log(res)
+
+    if (confirm("Вы хотите удалить вакансию?") == true) {
+        fetch(`https://sppjfapi.andrieiiuzlov.repl.co/api/vacancy/${e}`,{
+            method: 'DELETE'
+        }).then((result) => {
+            result.json().then((res) =>{
+                console.log(res)
+            })
         })
-    })
+    } else {
+            alert('Удаление отмененно пользователем')
+    }
+
+
 }
+function DeAuth(){
+    localStorage.removeItem('cmp_name')
+    localStorage.removeItem('test')
+    localStorage.removeItem('isAuthCmp')
+    window.location.href=`/`;
+}
+// useEffect(() => {
+//     axios
+// })
     
 if(!cmp_st){
     window.location.href="/admin/auth"
@@ -113,11 +156,13 @@ if(!cmp_st){
     return(
         <div className="CompEdit">
             <h2>Редактирование страницы компании {name}</h2>
+            <h3>Вакансии</h3>
             <button onClick={() => setVvac('block')}>Добавить вакансию</button>
         <div className='vacs-edit' style={{display: vvac}}>
         <h2>Добавление Вакансии</h2>
-
+                <div className='form-cr-vac'>
                     <form className='form-company' onSubmit={(e) => submitVac(e)}>
+                        <label>Форма создания вакансии</label>
                 <input onChange={(e)=>handleVac(e)} value={data.nm} placeholder='название вакансии' type="text" name='nm' id='nm'></input>
                 <input onChange={(e)=>handleVac(e)} value={data.salary} placeholder='ЗП' type="number" name='salary' id='salary'></input>
                 <input onChange={(e)=>handleVac(e)} value={data.shdl} placeholder='график работы' type="text" name='shdl' id='shdl'></input>
@@ -127,17 +172,38 @@ if(!cmp_st){
 
                 <button>Submit</button>
             </form>
+            <div className='pos'>
+                <h3>Коды должностей</h3>
+            <ul>
+           {positions.map((e) => {
+            return(
+                <li>
+                <b>{e.id}</b>: {e.a_position} 
+                </li>
+            )
+        })} 
+        
+        </ul></div>
         </div>
-        {vacs.map((e)=> {
-                            return <div className="vacancy" key={e.id}>
+        </div>
+
+                        <hr/>
+                        <h3>Текущие вакансии</h3>
+                        <button onClick={() => setVcmp('block')}>Добавить вакансию</button>
+        <div className='vacs-list' style={{display: vcmp}}>
+                {vacs.map((e)=> {
+                            return <div className="vacancy-f-edit" key={e.id}>
+                                                                <button className='btn-vac-del' onClick={() => delVac(e.id)}>X</button>
                                 <h3>{e.name_vacancy}</h3>
-                                <button onClick={() => delVac(e.id)}>delete</button>
-                                <p>Заработная плата: {e.salary} руб.</p>
-                                <p>Режим работы {e.shedule_vacancy}</p>
-                                <p>Тип работы {e.type_work}</p>
+                                <p className='vc-txt'>Заработная плата: {e.salary} руб.</p>
+                                <p className='vc-txt'>Режим работы {e.shedule_vacancy}</p>
+                                <p className='vc-txt'>Тип работы {e.type_work}</p>
                             </div>
                         })}
-    
+        </div>
+        <br/>
+        <button onClick={() => DeAuth()}>Выйти из системы</button>
+
         </div>
     )
 }
