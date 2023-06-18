@@ -1,7 +1,7 @@
 .company_info{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 92%;
     /* margin: 0; */
     padding: 0 ;
 
@@ -20,8 +20,10 @@
 
 }
 .vcs_grid{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .info_company{
     width: 292px;
@@ -40,18 +42,12 @@
     width: 250px;
 }
 .vacancy{
-    width: 210px;
-    height: 297px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 5px;
-    margin: 8px;
-    /* border: 1px solid; */
-    /* border-radius: 4px; */
-    background-color: white;
-    box-shadow: 2px 2px 12px black;
+    width: 500px;
+    border: 1px dotted;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 15px;
+
 }
 .form-cr-vac{
     display: flex;

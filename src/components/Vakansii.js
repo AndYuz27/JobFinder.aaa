@@ -4,7 +4,7 @@ import '../styles/Main.css'
 
 export default function Vakansii() {
 
-
+    const [srch, setSrch] = useState('');
     const [vacs, setVacs] = useState([]);
     let [isLoadd, setIsLoadd] = useState(false);
 
@@ -17,6 +17,14 @@ export default function Vakansii() {
         };
         setNewCards();
     }, []);
+
+    const handleSubComp = (e) => {
+        e.preventDefault();
+    
+        console.log(srch);
+        window.location.href=`/vakansii/city/${srch}`;    
+    }
+
 
     if(!isLoadd){
         return(
@@ -31,6 +39,13 @@ export default function Vakansii() {
 
     return(
         <div className="main_page">
+                                        <div className='comp-search'>
+                <form onSubmit={handleSubComp}>
+        
+          <input type='text' id='search' placeholder='найти по городу/региону' value={srch} onChange={(e) => setSrch(e.target.value)} />
+        <button>найти</button>
+      </form>
+                </div>
             {vacs.map((e) => {return <div className="vacancy_ppp" key={e.id}> {/*карточка товара */}
                                 <h3><a href={`/vakansii/${e.id}`}>{e.name_vacancy}</a></h3>
                                 <p>Заработная плата: {e.salary} руб.</p>
