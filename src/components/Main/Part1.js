@@ -7,14 +7,24 @@ import '../../App.css'
 
 
 export default function Part1(){
-
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+      }
     const [positions, SetPositions] = useState([])
 
     useEffect(() => {
     const setNewCards = async () => {
         let res = await getPositions();
         console.log(res);
-        SetPositions(res.slice(0,6));
+        // SetPositions(res.slice(0,6));
+        SetPositions(shuffle(res).slice(0,6))
     };
     setNewCards();
 }, []);
@@ -37,14 +47,14 @@ console.log(positions)
                 </div>
             </div>
             <div className="category">
-                <h2>Выберите вашу категорию</h2>
+                <h2>У нас предоставлены следующие должности для вашей будущей работы</h2>
                 <div className="cate_list">
                     {positions.map((e) =>{ return(
                         <div className="card_pos" key={e.id}>
-                            <img src="https://cdn4.iconfinder.com/data/icons/real-estate-2-34/66/85-512.png" alt="card" style={{height: "64px"}}/>
+                            <img src={e.img_pos} alt="card" style={{height: "64px"}}/>
                             <div className="ddd">
                                 <h4>{e.a_position}</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum tempus massa ac tincidunt. Sed quis ipsum elementum, hendrerit dui.</p>
+                                <p>{e.desc_j}</p>
                             </div>
                         </div>
                     )})}

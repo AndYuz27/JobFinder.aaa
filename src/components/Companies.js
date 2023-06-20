@@ -44,7 +44,7 @@ export default function Companies(){
         <button>найти</button>
       </form>
                 </div>
-            <div className='jjhh'>Вот что найдено</div>
+            <div className='jjhh'>найдено {comps.length} компаний</div>
             <div className='hhj'>
             {comps.map((el, index) => {return <Card key={index} comp={el}/>})}
 

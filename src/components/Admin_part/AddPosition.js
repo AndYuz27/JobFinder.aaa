@@ -7,9 +7,11 @@ export default function AddPosition() {
 
     const [positions, SetPositions] = useState([])
     const [data, setData] = useState({
-        nm:  ''
+        nm:  '',
+        imgp:  '',
+        desc:  ''
     })
-    const url = 'https://sppjfapi.andrieiiuzlov.repl.co/api/positions/'
+    const url = 'https://sppjfapi.andrieiiuzlov.repl.co/api/position/'
 
     useEffect(() => {
         const setNewCards = async () => {
@@ -23,7 +25,9 @@ export default function AddPosition() {
     function submit(e) {
         e.preventDefault();
         Axios.post(url, {
-            nm: data.nm
+            nm: data.nm,
+            imgp: data.imgp,
+            desc: data.desc
         }).then(res => {
             console.log(res.data)
             window.location.reload()
@@ -69,6 +73,8 @@ export default function AddPosition() {
         </ul>
         <form className='form-company' onSubmit={(e) => submit(e)}>
         <input onChange={(e)=>handle(e)} value={data.nm} placeholder='имя должности' type="text" name='nm' id='nm'></input>
+        <input onChange={(e)=>handle(e)} value={data.imgp} placeholder='Изображение должности' type="text" name='imgp' id='imgp'></input>
+        <input onChange={(e)=>handle(e)} value={data.desc} placeholder='Описание должности' type="text" name='desc' id='desc'></input>
         <button>Добавить</button>
 
         </form>

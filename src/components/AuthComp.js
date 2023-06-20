@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function AuthComp(){
@@ -58,6 +59,8 @@ return(
         </div>
         <button>Войти</button>
       </form>
+      <hr></hr>
+      <Link to='/invite_to_jf'>Добавить компанию в JobFinder</Link>
 </div>    
 )
 
