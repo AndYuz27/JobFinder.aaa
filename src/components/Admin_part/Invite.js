@@ -29,7 +29,23 @@ export default function Invite(){
     }, [ id ]);
     
 
+    function delInv(e) {
 
+        if (confirm("Вы хотите удалить сообщение об приглашении? ") == true) {
+            fetch(`https://sppjfapi.andrieiiuzlov.repl.co/api/invite/${e}`,{
+                method: 'DELETE'
+            }).then((result) => {
+                result.json().then((res) =>{
+                    console.log(res)
+                })
+            })
+            alert('Удаление завершено')
+        } else {
+                alert('Удаление отмененно пользователем')
+        }
+    
+    
+    }
     
 if(!isLoad) {
     return (
@@ -59,6 +75,7 @@ if(!isLoad) {
                                 <p>{el.fio}</p>
                                 <a href={`mailto:${el.email}`}>{el.email}</a>
                                 <a href={el.docs}>Ссылка на документы</a>
+                                <button onClick={() => delInv(el.id)}>Удалить сообщение о приглашении</button>
                         </div>})}
                        
                         </div>

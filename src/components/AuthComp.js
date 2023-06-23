@@ -50,11 +50,11 @@ return(
     <h2>авторизация для компаний</h2>
     <form onSubmit={handleSubComp}>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Логин</label>
           <input type='text' id='email' value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>Пароль</label>
           <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button>Войти</button>

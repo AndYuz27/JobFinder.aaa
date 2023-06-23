@@ -43,16 +43,20 @@ export default function Auth() {
 
 
     return (
+      <div>
+        <h2>
+          Авторизация для пользователей Администрации
+        </h2>
       <form onSubmit={handleSub}>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Логин</label>
           <input type='text' id='email' value={aemail} onChange={(e) => setaEmail(e.target.value)} />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>Пароль</label>
           <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button>Войти</button>
-      </form>
+      </form></div>
     );
   }

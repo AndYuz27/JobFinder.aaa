@@ -39,6 +39,7 @@ let styles_form = {
     justifyContent: "center",
     alignItems: "center"
 }
+
         return(
         <div className='AddCompany'>
             <h2>Для добавления компании пожалуйста введите данные</h2>
@@ -47,7 +48,7 @@ let styles_form = {
                 <input onChange={(e)=>handle(e)} value={data.nm} placeholder='имя компании' type="text" name='nm' id='nm'></input>
                 <input onChange={(e)=>handle(e)} value={data.fio} placeholder='ФИО' type="text" name='fio' id='fio'></input>
                 <input onChange={(e)=>handle(e)} value={data.docs} placeholder='ссылка на документы' type="text" name='docs' id='docs'></input>
-                <input onChange={(e)=>handle(e)} value={data.email} placeholder='ОГРН' type="email" name='email' id='email'></input>
+                <input onChange={(e)=>handle(e)} value={data.email} placeholder='E-Mail' type="email" name='email' id='email'></input>
                 <button>Отпрваить</button>
             </form>
         </div>
