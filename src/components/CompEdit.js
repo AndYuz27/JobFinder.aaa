@@ -17,6 +17,7 @@ export default function CompEdit(){
     const [id_comp, setIdComp] = useState('')
     const [addr_c, setAddr] = useState('')
     const [id_vacs, setId] = useState([])
+    const [fdbk, setFdbk] = useState([])
     const [data, setData] = useState({
         nm:  '',
         salary:  '',
@@ -85,6 +86,27 @@ console.log(validcmp)
     }, [ id_comp ]);
     console.log(addr_c)
     
+
+
+    useEffect(() => {
+
+        
+        if ( id_comp ) {
+            console.log(id)
+            Axios.get(`https://sppjfapi.andrieiiuzlov.repl.co/api/feedback_cmp_i/${id_comp}`)
+                .then(res => {
+                    console.log(res.data.rows)
+                    setFdbk(res.data.rows)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    }, [ id_comp ]);
+
+
+
+
     useEffect(() => {
         const setNewCards = async () => {
             let res = await getPositions();
@@ -189,7 +211,7 @@ if(!cmp_st){
 
                         <hr/>
                         <h3>Текущие вакансии</h3>
-                        <button onClick={() => setVcmp('block')}>Добавить вакансию</button>
+                        <button onClick={() => setVcmp('block')}>Раскрыть список</button>
         <div className='vacs-list' style={{display: vcmp}}>
                 {vacs.map((e)=> {
                             return <div className="vacancy-f-edit" key={e.id}>
@@ -201,6 +223,13 @@ if(!cmp_st){
                             </div>
                         })}
         </div>
+        <h2>Соискатели откикаются на ваши вакансии</h2>
+        <ul>
+        {fdbk.map((e) => {
+            return(
+                <li key={e.id}><a href={`http://localhost:3000/vakansii/${e.id_vac}`}>{e.fio}</a></li>
+            )
+        })}</ul>
         <br/>
         <button onClick={() => DeAuth()}>Выйти из системы</button>
 

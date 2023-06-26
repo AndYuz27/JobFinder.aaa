@@ -46,6 +46,8 @@ export default function Vakansii() {
         <button>найти</button>
       </form>
                 </div>
+                <div className='jjhh'>найдено {vacs.length} компаний</div>
+
             {vacs.map((e) => {return <div className="vacancy_ppp" key={e.id}> {/*карточка товара */}
                                 <h3><a href={`/vakansii/${e.id}`}>{e.name_vacancy}</a></h3>
                                 <p>Заработная плата: {e.salary} руб.</p>

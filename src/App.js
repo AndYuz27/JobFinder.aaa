@@ -22,6 +22,7 @@ import VacsFnd from "./components/VacsFnd";
 import VacsFnd_nm from "./components/VacsFnd_nm";
 import IntoCompany from "./components/IntoComapny";
 import Invite from "./components/Admin_part/Invite";
+import FeedbackInfo from "./components/FeedbackInfo";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
   // const adm_tkn = localStorage.getItem('test')
   const cmp_st = localStorage.getItem('cmp_name')
   const adm_st = localStorage.getItem('adm_name')
-  console.log('from App.js >> ' ,cmp_st)
+  // console.log('from App.js >> ' ,cmp_st)
 
   
 
@@ -95,6 +96,7 @@ return (
 
         {/* <Route path="/admin" element={<AdminMain />} /> */}
         <Route path="/companies/:id" element={<CompanyInfo />} />
+        <Route path="/feedback/:id" element={<FeedbackInfo />} />
         <Route path="/companies/edit/:id" element={<CompEdit/>} />
         <Route path="/vakansii/city/:id" element={<VacsFnd/>} />
         <Route path="/vakansii/name/:id" element={<VacsFnd_nm/>} />

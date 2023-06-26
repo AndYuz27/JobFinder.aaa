@@ -25,6 +25,8 @@ export default function VacsFnd_nm() {
     
     return(
         <div className="CompSearch">
+        <div className='jjhh'>найдено {fndvacs.length} компаний</div>
+
             {fndvacs.map((e) => {return (
             <div className="vacancy_ppp" key={e.id}> {/*карточка товара */}
             <h3><a href={`/vakansii/${e.id}`}>{e.name_vacancy}</a></h3>
