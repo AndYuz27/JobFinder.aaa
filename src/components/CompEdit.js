@@ -151,6 +151,7 @@ console.log(validcmp)
                 console.log(res)
             })
         })
+        window.location.reload()
     } else {
             alert('Удаление отмененно пользователем')
     }
@@ -163,12 +164,9 @@ function DeAuth(){
     localStorage.removeItem('isAuthCmp')
     window.location.href=`/`;
 }
-// useEffect(() => {
-//     axios
-// })
-    
+
 if(!cmp_st){
-    window.location.href="/admin/auth"
+    window.location.href="/auth/company"
     return(
         <div>
             <h2>Вы не вошли в систему. Редактирование невозможно</h2>
@@ -227,7 +225,7 @@ if(!cmp_st){
         <ul>
         {fdbk.map((e) => {
             return(
-                <li key={e.id}><a href={`http://localhost:3000/vakansii/${e.id_vac}`}>{e.fio}</a></li>
+                <li key={e.id}><a href={`http://localhost:3000/feedback/${e.id}`}>{e.fio}</a></li>
             )
         })}</ul>
         <br/>

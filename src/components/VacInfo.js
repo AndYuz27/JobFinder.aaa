@@ -17,7 +17,8 @@ export default function VacInfo(){
         phn: '',
         cmt: '',
         cv: '',
-        idvac: ''
+        idvac: '',
+        vacIdCmp: ''
     })
     const { id } = useParams()
     console.log(id)
@@ -77,7 +78,8 @@ console.log(vacIdCmp)
             phn: data.phn,
             cmt: data.cmt,
             cv: data.cv,
-            idvac: vacId
+            idvac: vacId,
+            comp_id: vacIdCmp
         }).then(res => {
             console.log(res.data)
             window.location.reload()
