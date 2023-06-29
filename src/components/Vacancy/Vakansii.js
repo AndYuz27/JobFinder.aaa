@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getVacs } from "../api"
-import '../styles/Main.css'
+import { getVacs } from "../../api"
+import '../../styles/Main.css'
 
 export default function Vakansii() {
 

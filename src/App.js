@@ -1,28 +1,31 @@
 import {Link, Route, Routes} from "react-router-dom"
 import './App.css';
 import MainPage from "./components/MainPage"
-import Vakansii from './components/Vakansii';
-import Companies from "./components/Companies";
+import Vakansii from './components/Vacancy/Vakansii';
 import NotFound from "./NotFound";
 import AdminMain from "./components/Admin_part/AdminMain";
-import CompanyInfo from "./components/CompanyInfo";
 import {useEffect ,useState} from 'react'
 import AddCompany from './components/Admin_part/AddCompany'
 import axios from "axios";
 import './styles/Mobile_adapt/header.css'
 import Auth from "./components/Admin_part/Auth";
-import Footer from "./components/Footer";
-import CompEdit from "./components/CompEdit";
+import Footer from "./components/Main/Footer";
 import AddPosition from "./components/Admin_part/AddPosition";
-import AuthComp from "./components/AuthComp";
+import AuthComp from "./components/Auth/AuthComp";
 import CompSearch from "./components/CompSerarch";
-import VacInfo from "./components/VacInfo";
 import DelComp from "./components/Admin_part/DelComp";
-import VacsFnd from "./components/VacsFnd";
-import VacsFnd_nm from "./components/VacsFnd_nm";
-import IntoCompany from "./components/IntoComapny";
+
+import VacInfo from "./components/Vacancy/VacInfo";
+import VacsFnd from "./components/Vacancy/VacsFnd";
+import VacsFnd_nm from "./components/Vacancy/VacsFnd_nm";
+import IntoCompany from "./components/Auth/IntoComapny";
 import Invite from "./components/Admin_part/Invite";
-import FeedbackInfo from "./components/FeedbackInfo";
+import FeedbackInfo from "./components/Vacancy/FeedbackInfo";
+
+//company comps
+import CompEdit from "./components/Company/CompEdit";
+import CompanyInfo from "./components/Company/CompanyInfo";
+import Companies from "./components/Company/Companies";
 
 
 function App() {

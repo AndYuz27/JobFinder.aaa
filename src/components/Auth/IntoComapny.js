@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import Axios from 'axios'
-import '../styles/Admin.css'
+import '../../styles/Admin.css'
 
 export default function IntoCompany(){
     const aAuth = localStorage.getItem('isAuthAdm')

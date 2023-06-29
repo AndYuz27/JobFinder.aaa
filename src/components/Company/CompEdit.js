@@ -2,8 +2,8 @@ import axios from 'axios';
 import Axios from 'axios'
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
-import '../styles/Companies.css'
-import { getPositions } from '../api';
+import './Companies.css'
+import { getPositions } from '../../api';
 
 
 export default function CompEdit(){

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from 'react-router-dom';
-import { getCompany } from "../api.js";
+import { getCompany } from "../../api.js";
 import axios from "axios";
-import Card from "./Card.js";
-import '../styles/Companies.css'
+import Card from "../Card.js";
+import './Companies.css'
 import ReactStars from "react-rating-stars-component";
 
 

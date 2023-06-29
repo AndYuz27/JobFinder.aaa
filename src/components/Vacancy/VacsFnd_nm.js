@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react"
 import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
-import Card from "./Card";
+import Card from "../Card";
 
 
 export default function VacsFnd_nm() {
