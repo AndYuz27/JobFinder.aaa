@@ -225,7 +225,7 @@ if(!cmp_st){
         <ul>
         {fdbk.map((e) => {
             return(
-                <li key={e.id}><a href={`http://localhost:3000/feedback/${e.id}`}>{e.fio}</a></li>
+                <li key={e.id}><a href={`/feedback/${e.id}`}>{e.fio}</a></li>
             )
         })}</ul>
         <br/>
