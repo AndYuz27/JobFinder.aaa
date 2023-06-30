@@ -151,6 +151,8 @@ console.log(validcmp)
                 console.log(res)
             })
         })
+        alert('Удалено')
+
         window.location.reload()
     } else {
             alert('Удаление отмененно пользователем')
